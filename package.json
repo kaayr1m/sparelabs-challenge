@@ -9,7 +9,11 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-map-gl": "^3.3.4",
+    "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "reduxsauce": "^1.0.0",
     "superagent": "^3.8.3"
   },
   "lint-staged": {
@@ -24,5 +28,6 @@
     "build": "sh -ac '. .env; react-scripts build'",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy": "http://localhost:3000"
 }

@@ -1,13 +1,14 @@
 import './App.css';
-
-import React, { Component } from 'react';
 import logo from './logo.svg';
 
-import ReactMapGL from 'react-map-gl';
+import React, { Component } from 'react';
+
+import HomeContainer from './home/HomeContainer';
 
 class App extends Component {
   state = {
     viewport: {
+      // Vancouver Lat Long
       latitude: 49.24966,
       longitude: -123.11934,
       zoom: 8
@@ -21,11 +22,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <ReactMapGL
-          {...this.state.viewport}
-          onViewportChange={viewport => this.setState({ viewport })}
-          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
-        />
+        <HomeContainer />
       </div>
     );
   }
