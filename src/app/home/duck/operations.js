@@ -13,20 +13,8 @@ const fetchTranslinkBusStops = (lat, long, radius) => {
           process.env.REACT_APP_TRANSLINK_API_KEY
         }&lat=${lat}&long=${long}&radius=${radius}`
       )
-      .then(response => response.json())
-      .then(json => {
-        const responseData = json;
+      .then(response => {
         let data = [];
-
-        responseData.data.children.map(child => {
-          const childData = {
-            title: child.data.title,
-            url: child.data.permalink
-          };
-
-          data.push(childData);
-          return null;
-        });
 
         dispatch(Creators.receiveTranslinkBusStops(data));
       });
