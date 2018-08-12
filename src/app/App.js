@@ -6,15 +6,6 @@ import React, { Component } from 'react';
 import HomeContainer from './home/HomeContainer';
 
 class App extends Component {
-  state = {
-    viewport: {
-      // Vancouver Lat Long
-      latitude: 49.24966,
-      longitude: -123.11934,
-      zoom: 8
-    }
-  };
-
   render() {
     return (
       <div className="App">
