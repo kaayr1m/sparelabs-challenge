@@ -20,4 +20,7 @@ challenge so that we can look over the final result. Here are some things we wil
 #### Questions
 1. What new technologies did you learn to complete this challenge?
 - git-secret: used to hide `.env` with important secret keys (i.e mapbox token)
+- react-redux
+- react-map-gl
 2. Was there anything you found specifically challenging or time consuming?
+- cors: this is something i always run into and it presents a different challenge everytime
