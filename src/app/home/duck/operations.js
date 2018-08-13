@@ -5,7 +5,6 @@ const Creators = actions.Creators;
 
 const fetchTranslinkBusStops = (lat, long, radius) => {
   return dispatch => {
-    console.log(Creators.requestTranslinkBusStops(lat, long, radius));
     dispatch(Creators.requestTranslinkBusStops(lat, long, radius));
     return request
       .get(
@@ -14,13 +13,22 @@ const fetchTranslinkBusStops = (lat, long, radius) => {
         }&lat=${lat}&long=${long}&radius=${radius}`
       )
       .then(response => {
-        let data = [];
+        let parser = new DOMParser();
+        let xmlDoc = parser.parseFromString(response.text, 'text/xml');
+        let data = xmlDoc.getElementsByTagName('Stops')[0].childNodes;
 
         dispatch(Creators.receiveTranslinkBusStops(data));
       });
   };
 };
 
+const onViewportChange = viewport => {
+  return dispatch => {
+    dispatch(Creators.updateViewPort(viewport));
+  };
+};
+
 export default {
+  onViewportChange,
   fetchTranslinkBusStops
 };

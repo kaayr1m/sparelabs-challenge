@@ -3,19 +3,32 @@ import MapComponent from './MapComponent';
 
 import { homeOperations } from './duck';
 
+let timeout = null;
+
 const mapStateToProps = state => {
-  const { viewport } = state.home;
+  const { viewport, translinkBusStops } = state.home;
   return {
-    viewport
+    viewport,
+    translinkBusStops
   };
 };
 
 const mapDispatchToProps = dispatch => {
   const fetchTranslinkBusStops = (lat, long, radius) => {
-    dispatch(homeOperations.fetchTranslinkBusStops(lat, long, radius));
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      dispatch(homeOperations.fetchTranslinkBusStops(lat, long, radius));
+    }, 2000);
   };
 
-  return { fetchTranslinkBusStops };
+  const onViewportChange = viewport => {
+    dispatch(homeOperations.onViewportChange(viewport));
+  };
+
+  return {
+    onViewportChange,
+    fetchTranslinkBusStops
+  };
 };
 
 const MapContainer = connect(

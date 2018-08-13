@@ -3,8 +3,8 @@ import types from './types';
 const initialState = {
   translinkBusStops: [],
   viewport: {
-    width: 400,
-    height: 400,
+    bearing: 0,
+    pitch: 0,
     latitude: 49.24966,
     longitude: -123.11934,
     zoom: 11
@@ -27,6 +27,18 @@ const homeReducer = (state = initialState, action) => {
       return {
         ...state,
         translinkBusStops
+      };
+    }
+
+    case types.UPDATE_VIEW_PORT: {
+      const { viewport } = action;
+      return {
+        ...state,
+        viewport: {
+          latitude: viewport.latitude,
+          longitude: viewport.longitude,
+          zoom: viewport.zoom
+        }
       };
     }
 

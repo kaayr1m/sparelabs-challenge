@@ -8,7 +8,8 @@ import { createActions } from 'reduxsauce';
 
 const { Creators, Types } = createActions({
   requestTranslinkBusStops: ['lat', 'long', 'radius'],
-  receiveTranslinkBusStops: ['translinkBusStops']
+  receiveTranslinkBusStops: ['translinkBusStops'],
+  updateViewPort: ['viewport']
 });
 
 export default { Creators, Types };
