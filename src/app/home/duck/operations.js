@@ -8,9 +8,9 @@ const fetchTranslinkBusStops = (lat, long, radius) => {
     dispatch(Creators.requestTranslinkBusStops(lat, long, radius));
     return request
       .get(
-        `http://api.translink.ca/rttiapi/v1/stops?apikey=${
+        `https://cors-anywhere.herokuapp.com/http://api.translink.ca/rttiapi/v1/stops?apikey=${
           process.env.REACT_APP_TRANSLINK_API_KEY
-        }&lat=${lat}&long=${long}&radius=${radius}`
+        }&lat=${lat.toFixed(5)}&long=${long.toFixed(5)}&radius=${radius}`
       )
       .then(response => {
         let parser = new DOMParser();
