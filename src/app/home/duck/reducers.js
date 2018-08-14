@@ -5,9 +5,8 @@ const initialState = {
   viewport: {
     bearing: 0,
     pitch: 0,
-    latitude: 49.24966,
-    longitude: -123.11934,
-    zoom: 11
+    latitude: 49.279961413621656,
+    longitude: -123.13624864562995
   }
 };
 
@@ -36,8 +35,7 @@ const homeReducer = (state = initialState, action) => {
         ...state,
         viewport: {
           latitude: viewport.latitude,
-          longitude: viewport.longitude,
-          zoom: viewport.zoom
+          longitude: viewport.longitude
         }
       };
     }

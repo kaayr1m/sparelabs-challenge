@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
     clearTimeout(timeout);
     timeout = setTimeout(() => {
       dispatch(homeOperations.fetchTranslinkBusStops(lat, long, radius));
-    }, 2000);
+    }, 1000);
   };
 
   const onViewportChange = viewport => {
